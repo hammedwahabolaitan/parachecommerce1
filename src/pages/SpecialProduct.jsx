@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from "react-slick"; // Assuming you're using react-slick for the carousel
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
 export default function SpecialProduct() {
   const settings = {
     dots: false,

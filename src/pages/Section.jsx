@@ -4,7 +4,7 @@ const ProductCard = ({ imageUrl, title, price, originalPrice, colors, rating }) 
   return (
     <div className="w-80 border rounded-md shadow-sm">
       <div className="relative">
-        <img src={imageUrl} alt={title} className=" object-cover" />
+        <img src={imageUrl} alt={title} className="w-full h-[60vh] object-cover" />
         <div className="absolute bottom-0 left-0 flex justify-center w-full space-x-1">
           <img src={imageUrl} className="w-8 h-12 opacity-75" alt="Thumbnail 1" />
           <img src={imageUrl} className="w-8 h-12 opacity-75" alt="Thumbnail 2" />
@@ -52,11 +52,11 @@ const ProductList = () => {
       price: 184,
       originalPrice: 230,
       rating: 4,
-      colors: ['#4CAF50', '#2C3E50','#D3B5A5'],
+      colors: ['#4CAF50', '#2C3E50'],
     },
     {
       id: 2,
-      imageUrl: 'src/assets/img/4.jpg',
+      imageUrl: 'src/assets/img/13(1).jpg',
       title: 'Crop Top',
       price: 72.6,
       originalPrice: 121,
@@ -70,7 +70,7 @@ const ProductList = () => {
       price: 95.5,
       originalPrice: 140,
       rating: 5,
-      colors: ['#2E2E2E', '#FF5733', '#D3B5A5']
+      colors: ['#2E2E2E', '#FF5733']
     },
 
     
@@ -81,11 +81,11 @@ const ProductList = () => {
       <div className="title1 section-t-space my-5 grid justify-center items-center text-center">
         <h4 className="text-xl font-semibold text-red-500">special offer</h4>
         <h2 className="title-inner1 text-4xl font-bold uppercase">top collection</h2>
-        <div className="line my-2 border-t-2 border-gray-300"></div>
+        <div className="line my-2 border-t-2 border-red-300"></div>
         <p className='w-[40vw] text-center'>Lorem ipsum dolor sit amet consectetur actino delectus asperiores cee. Ea voluptatem debitis necessitatibus itaque, ipsum iusto id repellat provident?</p>
       </div>
       
-      <div className="flex justify-around gap-5">
+      <div className="flex flex-wrap justify-around gap-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

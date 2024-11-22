@@ -1,15 +1,11 @@
 import React from 'react'
-import Header from './component/Header'
-import Hero from './pages/Hero'
-import SubHero from './pages/SubHero'
+// import HomePage from './pages/HomePage'
+import Router from './frame/Router'
 export default function App() {
   return (
     <div>
-
-      
-      <Header/>
-      <Hero />
-      <SubHero />
+      {/* <HomePage /> */}
+      <Router />
     </div>
   )
 }

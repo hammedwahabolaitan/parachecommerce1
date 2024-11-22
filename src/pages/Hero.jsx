@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
   const settings = {
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -14,38 +15,47 @@ const Hero = () => {
   };
 
   const slides = [
-    // {
-    //   title: "Women Fashion",
-    //   subtitle: "Welcome to Fashion",
-    //   href: "/left-sidebar/collection",
-    //   image: "src/assets/img/woman fashion 2.jpeg", // Update to the correct image path
-    // },
     {
-      title: "Men Fashion",
-      subtitle: "Welcome to Fashion",
+      title: "men fashion",
+      subtitle: "welcome to fashion",
       href: "/left-sidebar/collection",
-      image: "src/assets/img/2.jpg", // Update to the correct image path
+      image: "src/assets/img/14.jpg ", // image path
+      
     },
     {
-      title: "Women Fashion",
-      subtitle: "Welcome to Fashion",
+      title: "women fashion",
+      subtitle: "welcome to fashion",
       href: "/left-sidebar/collection",
-      image: "src/assets/img/31.jpg", // Update to the correct image path
+      image: "src/assets/img/15.jpg", //  image path
+    },
+    {
+      title: "women fashion",
+      subtitle: "welcome to fashion",
+      href: "/left-sidebar/collection",
+      image: "src/assets/img/16.jpg", //  image path
     },
   ];
 
+
+//   const Img ={
+// image:'src/assets/img/sub-banner1.5d5f9c6f.jpg'
+
+//   }
+
+
+
   return (
     <section className="p-0 mb">
-      <Slider {...settings}>
+     image.png <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative z-0">
-            <div className={`home ${index % 2 === 0 ? 'home2' : 'home1'} text-center bg-gray-200 py-10 h-[80vh]`}>
+          <div key={index} className="relative">
+            <div className={`home ${index % 2 === 0 ? 'home2' : 'home1'} text-center bg-gray-200 py-10  h-[80vh]`}>
               {slide.image && (
-                <img src={slide.image} alt={slide.title} className="w-full object-cover absolute top-0 left-0 l z-0" />
+                <img src={slide.image} alt={slide.title} className="w-full  object-cover absolute"/>
               )}
-              <div className="container mx-auto flex justify-start mt-24">
+              <div className="container mx-auto flex justify-start mt-24 ">
                 <div className="flex justify-center relative">
-                  <div className="slider-contain bg-opacity-50 p-4 rounded-lg">
+                  <div className="slider-contain  bg-opacity-50 p-4 rounded-lg">
                     <h4 className="text-lg text-gray-600">{slide.subtitle}</h4>
                     <h1 className="text-4xl font-bold text-gray-900 mt-2 uppercase">{slide.title}</h1>
                     <a
@@ -70,27 +80,44 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} slick-arrow bg-black text-white p-3 rounded-full absolute right-4 top-1/2 transform -translate-y-1/2 z-10`}
+      className={`${className} slick-arrow bg-[#c3c3c51e] text-black p-7 rounded-xl absolute right-4 top-1/2 transform -translate-y-1/2 z-1088`}
       style={{ ...style }}
       onClick={onClick}
     >
-      &#8250;
+      Next
     </button>
   );
 };
 
-// Previous Arrow
+//  Previous Arrow
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} slick-arrow bg-black text-white p-3 rounded-full absolute left-4 top-1/2 transform -translate-y-1/2 z-10`}
+      className={`${className} slick-arrow bg-black text-white p-7 rounded-full absolute left-4 top-1/2 transform -translate-y-1/2 z-10`}
       style={{ ...style }}
       onClick={onClick}
     >
-      &#8249;
+      Previous
     </button>
-  );
-};
 
+
+
+
+  );
+  <div key={index} className="relative z-50">
+  {Img.map((slide, index) => (
+          <div key={index} className="relative">
+            <div className={`home ${index % 2 === 0 ? 'home2' : 'home1'} text-center bg-gray-200 py-10  h-[80vh]`}>
+              {Img.image && (
+                <img src={Img.image} alt={Img.title} className="w-full  object-cover absolute z-50"/>
+              )}
+              <div className="container mx-auto flex justify-start mt-24 ">
+               
+              </div>
+            </div>
+          </div>
+        ))}
+</div>
+};
 export default Hero;

@@ -9,7 +9,7 @@ const ProductCard = ({ imageUrl, title, price, originalPrice, colors, rating }) 
     <div className="w-80 border rounded-md shadow-sm">
       {/* Product Image */}
       <div className="relative">
-        <img src={imageUrl} alt={title} className="object-cover" />
+        <img src={imageUrl} alt={title} className="w-full h-[60vh] object-cover" />
         <div className="absolute bottom-0 left-0 flex justify-center w-full space-x-1">
           {/* Image Thumbnails */}
           <img src={imageUrl} className="w-8 h-12 opacity-75" alt="Thumbnail 1" />
@@ -66,7 +66,7 @@ const ProductList = () => {
       price: 184,
       originalPrice: 230,
       rating: 4,
-      colors: ['#4CAF50', '#2C3E50','#DCDCDC']
+      colors: ['#4CAF50', '#2C3E50']
     },
     {
       id: 2,
@@ -84,7 +84,7 @@ const ProductList = () => {
       price: 95.5,
       originalPrice: 140,
       rating: 5,
-      colors: ['#2E2E2E', '#FF5733','#DCDCDC']
+      colors: ['#2E2E2E', '#FF5733']
     },
 
     {
@@ -94,17 +94,17 @@ const ProductList = () => {
         price: 95.5,
         originalPrice: 140,
         rating: 5,
-        colors: ['#2E2E2E', '#FF5733','#DCDCDC']
+        colors: ['#2E2E2E', '#FF5733']
       },
 
       {
         id: 5,
-        imageUrl: 'src/assets/img/7.jpg',
+        imageUrl: 'src/assets/img/3.jpg',
         title: 'Jacket',
         price: 95.5,
         originalPrice: 140,
         rating: 5,
-        colors: ['#2E2E2E', '#FF5733','#DCDCDC']
+        colors: ['#2E2E2E', '#FF5733']
       },
 
       {
@@ -114,7 +114,7 @@ const ProductList = () => {
         price: 95.5,
         originalPrice: 140,
         rating: 5,
-        colors: ['#2E2E2E', '#FF5733','#DCDCDC']
+        colors: ['#2E2E2E', '#FF5733']
       },
   ];
 
@@ -127,11 +127,11 @@ const ProductList = () => {
       </div>
       <ul className="tabs flex gap-4 mb-4 border-b-2 border-gray-300">
         <li className="active cursor-pointer px-4 py-2 text-blue-500 border-b-2 border-blue-500">NEW ARRIVAL</li>
-        <li className="cursor-pointer px-4 py-2 hover:text-blue-500 " >FEATURED</li>
-        <li className="cursor-pointer px-4 py-2 hover:text-blue-500">SPECIAL</li>
+        <li className="cursor-pointer px-4 py-2 hover:text-blue-500 " onClick={() =>goto('/feature')} >FEATURED</li>
+        <li className="cursor-pointer px-4 py-2 hover:text-blue-500" onClick={()=>goto('/special')}>SPECIAL</li>
       </ul>
       {/* Product List */}
-      <div className="grid grid-cols-3 justify-around gap-5" onClick={()=> goto('/singleproduct')} >
+      <div className="flex flex-wrap justify-around gap-5" onClick={()=> goto('/singleproduct')} >
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -153,4 +153,3 @@ export default ProductList;
 
 
       
-

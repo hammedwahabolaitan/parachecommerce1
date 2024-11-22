@@ -30,6 +30,10 @@ const menuItems = [
 
     link:" ",
          subMenu:[
+          // { name:"Product Element",  link:""},
+          { name:"Add To Cart",  link:""},
+          { name:"Portfolio",  link:""},
+          { name:"Email Template",  link:""},
            { name:"slide bar",  link:""},
            { name:"Thumbnail Image",  link:""},
            { name:"3-Column",  link:""},
@@ -46,21 +50,18 @@ const menuItems = [
          subMenu:[
            { name:"Theme Element",  link:""},
         
-           { name:"Product Element",  link:""},
-           { name:"Add To Cart",  link:""},
-           { name:"Portfolio",  link:""},
-           { name:"Email Template",  link:""},
+          
          ]
 
     },
 
     {
-        name:"pages",
+        name:"Account",
 
     link:"",
          subMenu:[
-           { name:"vendornew",  link:""},
-           { name:"Account",  link:""},
+          //  { name:"",  link:""},
+          //  { name:"Account",  link:""},
            { name:"product",  link:""},
            { name:"language",  link:""},
            { name:"language",  link:""},
@@ -72,13 +73,13 @@ const menuItems = [
         name:"blog",
 
     link:"",
-         subMenu:[
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-         ]
+        //  subMenu:[
+        //    { name:"vendornew",  link:""},
+        //    { name:"vendornew",  link:""},
+        //    { name:"vendornew",  link:""},
+        //    { name:"vendornew",  link:""},
+        //    { name:"vendornew",  link:""},
+        //  ]
 
     },
   ];
@@ -88,7 +89,7 @@ const menuItems = [
 export default function Header() {
   return (
     <div>
-      <header id="sticky" className="sticky top-0 bg-white shadow">
+      <header id="sticky" className="sticky top-0 bg-[white] shadow">
   <div className="bg-gray-100 h-[50px] ">
     <div className="container mx-auto flex justify-between py-2">
       <div className="flex items-center space-x-4">

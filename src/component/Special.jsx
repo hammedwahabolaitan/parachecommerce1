@@ -1,23 +1,13 @@
-
-
-
-
-      
-
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../pages/footer';
-import Header from './Header';
 
 // ProductCard Component
 const ProductCard = ({ imageUrl, title, price, originalPrice, colors, rating }) => {
+
   return (
-   <div>
-     <div className="w-80 border rounded-md shadow-sm">
+    <div className="w-80 border rounded-md shadow-sm">
       {/* Product Image */}
       <div className="relative">
-        <img src={imageUrl} alt={title} className="object-cover" />
+        <img src={imageUrl} alt={title} className="w-full h-[60vh] object-cover" />
         <div className="absolute bottom-0 left-0 flex justify-center w-full space-x-1">
           {/* Image Thumbnails */}
           <img src={imageUrl} className="w-8 h-12 opacity-75" alt="Thumbnail 1" />
@@ -54,113 +44,90 @@ const ProductCard = ({ imageUrl, title, price, originalPrice, colors, rating }) 
           ))}
         </div>
       </div>
-      
     </div>
-
-  
-
-
-   </div>
   );
 };
 
 // ProductList Component
 const ProductList = () => {
-  const navigate = useNavigate();
-
-  // Navigate function
+  // Define your products array
   const goto = (page) => {
     navigate(page);
   };
-
-  // Define your products array
   const products = [
-   
     {
       id: 1,
-      imageUrl: 'src/assets/img/chair2.jpg',
-      title: 'chair',
-      price: 72.6,
-      originalPrice: 121,
-      rating: 4,
-      colors: ['#B0A78B', '#D3B5A5', '#DCDCDC']
-    },
-    {
-      id: 2,
-      imageUrl: 'src/assets/img/table1.jpg',
-      title: 'table',
-      price: 95.5,
-      originalPrice: 140,
-      rating: 5,
-      colors: ['#2E2E2E', '#FF5733', '#D3B5A5']
-    },
-
-    {
-      id: 3,
-      imageUrl: 'src/assets/img/chair 3.jpg',
-      title: 'table',
-      price: 95.5,
-      originalPrice: 140,
-      rating: 5,
-      colors: ['#2E2E2E', '#FF5733',]
-    },
-
-    {
-      id: 4,
-      imageUrl: 'src/assets/img/bag1.jpg',
-      title: 'watch',
+      imageUrl: 'src/assets/img/39.jpg',
+      title: 'Waist Dress',
       price: 184,
       originalPrice: 230,
       rating: 4,
       colors: ['#4CAF50', '#2C3E50']
     },
     {
-      id: 5,
-      imageUrl: 'src/assets/img/watch2.jpg',
-      title: 'table',
-      price: 95.5,
-      originalPrice: 140,
-      rating: 5,
-      colors: ['#2E2E2E', '#FF5733', '#D3B5A5']
+      id: 2,
+      imageUrl: 'src/assets/img/39.jpg',
+      title: 'Crop Top',
+      price: 72.6,
+      originalPrice: 121,
+      rating: 4,
+      colors: ['#B0A78B', '#D3B5A5', '#DCDCDC']
     },
     {
-      id: 6,
-      imageUrl: 'src/assets/img/table2.jpg',
-      title: 'table',
+      id: 3,
+      imageUrl: 'src/assets/img/39.jpg',
+      title: 'Jacket',
       price: 95.5,
       originalPrice: 140,
       rating: 5,
-      colors: ['#2E2E2E', '#FF5733', '#D3B5A5']
+      colors: ['#2E2E2E', '#FF5733']
     },
-    // Additional products
+
+    {
+        id: 4,
+        imageUrl: 'src/assets/img/39.jpg',
+        title: 'Jacket',
+        price: 95.5,
+        originalPrice: 140,
+        rating: 5,
+        colors: ['#2E2E2E', '#FF5733']
+      },
+
+      {
+        id: 5,
+        imageUrl: 'src/assets/img/39.jpg',
+        title: 'Jacket',
+        price: 95.5,
+        originalPrice: 140,
+        rating: 5,
+        colors: ['#2E2E2E', '#FF5733']
+      },
+
+      {
+        id: 6,
+        imageUrl: 'src/assets/img/39.jpg',
+        title: 'Jacket',
+        price: 95.5,
+        originalPrice: 140,
+        rating: 5,
+        colors: ['#2E2E2E', '#FF5733']
+      },
   ];
 
   return (
-    <div>
-      <Header />
-      <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4">
       <div className="title1 section-t-space my-5 grid justify-center items-center">
         <h4 className="text-lg font-semibold">Exclusive Products</h4>
         <h2 className="title-inner1 text-2xl font-bold uppercase">Special Products</h2>
         <div className="line my-2 border-t-2 border-gray-300"></div>
       </div>
       <ul className="tabs flex gap-4 mb-4 border-b-2 border-gray-300">
-        <li
-          className="active cursor-pointer px-4 py-2 hover:text-blue-500"
-        >
-          NEW ARRIVAL
-        </li>
-        <li className="cursor-pointer px-4 py-2 text-blue-500 border-b-2 border-blue-500">
-          FEATURED
-        </li>
-        <li
-          className="cursor-pointer px-4 py-2 hover:text-blue-500"
-        >
-          SPECIAL
-        </li>
+        <li className="active cursor-pointer px-4 py-2 hover:text-blue-500  " onClick={()=>goto('/Product')}>NEW ARRIVAL</li>
+        <li className="cursor-pointer px-4 py-2 hover:text-blue-500 "  onClick={()=>goto('/feature')}>FEATURED</li>
+        <li className="cursor-pointer px-4 py-2 text-blue-500 border-b-2 border-blue-500" >SPECIAL</li>
       </ul>
       {/* Product List */}
-      <div className="grid grid-cols-3 justify-around gap-5">
+      <div className="flex flex-wrap justify-around gap-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -174,10 +141,12 @@ const ProductList = () => {
         ))}
       </div>
     </div>
-    <Footer />
-    
-    </div>
   );
 };
 
 export default ProductList;
+
+
+
+      
+
