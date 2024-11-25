@@ -1,7 +1,7 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-
-
+import { Link } from 'react-router-dom';
 // menu items 
 const menuItems = [
   
@@ -9,32 +9,23 @@ const menuItems = [
       name: "Home",
       link: "/",
       subMenu: [
-        { name: "New Demos", link: "/layouts/Tools" },
-        { name: "Christmas", link: "/layouts/Christmas" },
-        //  sub-menu items 
       ],
     },
 
     {
-      name: "Shop",
-      link: "/shop/left_sidebar",
+      name: "SPECIAL",
+      link: "/special",
       subMenu: [
-        { name: "Left Sidebar", link: "/shop/left_sidebar" },
-        { name: "Right Sidebar", link: "/shop/right_sidebar" },
-        //  sub-menu items
+    
       ],
     },
 
     {
         name:"products",
 
-    link:" ",
+    link:"#product",
          subMenu:[
-           { name:"slide bar",  link:""},
-           { name:"Thumbnail Image",  link:""},
-           { name:"3-Column",  link:""},
-           { name:"sticky",  link:""},
-           { name:"accordian",  link:""},
+          
          ]
 
     },
@@ -42,28 +33,20 @@ const menuItems = [
     {
         name:"features",
 
-    link:"",
-         subMenu:[
-           { name:"Theme Element",  link:""},
-        
-           { name:"Product Element",  link:""},
-           { name:"Add To Cart",  link:""},
-           { name:"Portfolio",  link:""},
-           { name:"Email Template",  link:""},
-         ]
+    link:"/feature",
+         
 
     },
 
     {
-        name:"pages",
+        name:"Account",
 
-    link:"",
+    link:"/login",
          subMenu:[
-           { name:"vendornew",  link:""},
-           { name:"Account",  link:""},
-           { name:"product",  link:""},
-           { name:"language",  link:""},
-           { name:"language",  link:""},
+          //  
+           { name:"Login",  link:""},
+           { name:"Register",  link:"/RegisterPage"},
+           { name:"LogOut",  link:""},
          ]
 
     },
@@ -72,25 +55,20 @@ const menuItems = [
         name:"blog",
 
     link:"",
-         subMenu:[
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-           { name:"vendornew",  link:""},
-         ]
-
     },
   ];
   
   
   
-export default function Header() {
+export default function Header({cartCount} ) {
+
+  const navigate = useNavigate();
+
   return (
     <div>
-      <header id="sticky" className="sticky top-0 bg-white shadow">
+      <header id="sticky" className="sticky top-0 bg-[white] shadow">
   <div className="bg-gray-100 h-[50px] ">
-    <div className="container mx-auto flex justify-between py-2">
+  <div className="container mx-auto flex justify-between py-2 overflow-visible">
       <div className="flex items-center space-x-4">
         <span>Welcome to Our Store Multikart</span>
         <span className="flex items-center">
@@ -99,15 +77,15 @@ export default function Header() {
         </span>
       </div>
       <div className="flex items-center space-x-4">
-        <a href="/page/account/wishlist" className="hover:underline">
+        <a href="" className="hover:underline">
           <i className="pi pi-heart mr-2 text-red-600 " aria-hidden="true"   style={{ fontSize: '15px', color: 'blue' }} ></i> Wishlist
         </a>
 
         <div className="relative group">
           <i className="pi pi-user mr-2" aria-hidden="true"></i> My Account
           <ul className="absolute right-0 mt-2 hidden bg-white shadow-lg group-hover:block">
-            <li><a href="/page/account/login" className="block px-4 py-2 hover:bg-gray-100">Login</a></li>
-            <li><a href="/page/account/register" className="block px-4 py-2 hover:bg-gray-100">Register</a></li>
+            <li><a href="/login" className="block px-4 py-2 hover:bg-gray-100">Login</a></li>
+            <li><a href="/register" className="block px-4 py-2 hover:bg-gray-100">Register</a></li>
             <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Logout</a></li>
           </ul>
         </div>
@@ -151,6 +129,14 @@ export default function Header() {
         <button className="text-gray-600 hover:text-gray-900">
           <i className="pi pi-cog"style={{ fontSize: '22px', color: 'green' }} ></i>
         </button>
+<div className="p-4 bg-blue-00 text-black flex justify-between">
+      <nav className="flex space-x-4">
+        <Link to="/cart">
+          Cart 🛒 <span className="bg-red-500 text-white px-2 py-1 rounded-full">{cartCount}</span>
+        </Link>
+      </nav>
+    </div>
+        
         <button className="text-gray-600 hover:text-gray-900">
           <i className="pi pi-trash "style={{ fontSize: '22px', color: 'black' }}></i>
         </button>
@@ -162,3 +148,4 @@ export default function Header() {
     </div>
   )
 }
+
