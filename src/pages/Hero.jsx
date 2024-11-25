@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
   const settings = {
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -14,47 +15,49 @@ const Hero = () => {
   };
 
   const slides = [
-    // {
-    //   title: "Women Fashion",
-    //   subtitle: "Welcome to Fashion",
-    //   href: "/left-sidebar/collection",
-    //   image: "src/assets/img/woman fashion 2.jpeg", // Update to the correct image path
-    // },
     {
       title: "Men Fashion",
       subtitle: "Welcome to Fashion",
       href: "/left-sidebar/collection",
-      image: "src/assets/img/2.jpg", // Update to the correct image path
+      image: "src/assets/img/1 (1).jpg", // image path
     },
     {
       title: "Women Fashion",
       subtitle: "Welcome to Fashion",
       href: "/left-sidebar/collection",
-      image: "src/assets/img/31.jpg", // Update to the correct image path
+      image: "src/assets/img/2 (1).jpg", // image path
     },
   ];
 
   return (
-    <section className="p-0 mb">
+    <section className="relative p-0 mb-10 z-50">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative z-0">
-            <div className={`home ${index % 2 === 0 ? 'home2' : 'home1'} text-center bg-gray-200 py-10 h-[80vh]`}>
+          <div key={index} className="relative">
+            <div
+              className={`home ${
+                index % 2 === 0 ? 'home2' : 'home1'
+              } text-center bg-gray-200 h-[80vh]`}
+            >
               {slide.image && (
-                <img src={slide.image} alt={slide.title} className="w-full object-cover absolute top-0 left-0 l z-0" />
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover absolute top-0 left-0"
+                />
               )}
-              <div className="container mx-auto flex justify-start mt-24">
-                <div className="flex justify-center relative">
-                  <div className="slider-contain bg-opacity-50 p-4 rounded-lg">
-                    <h4 className="text-lg text-gray-600">{slide.subtitle}</h4>
-                    <h1 className="text-4xl font-bold text-gray-900 mt-2 uppercase">{slide.title}</h1>
-                    <a
-                      className="btn btn-solid mt-4 inline-block bg-black text-white py-2 px-6 rounded-full hover:bg-gray-800"
-                      href={slide.href}
-                    >
-                      Shop Now
-                    </a>
-                  </div>
+              <div className="container mx-auto flex justify-start items-center h-full relative z-10">
+                <div className="slider-contain bg-opacity-75 bg-white p-6 rounded-lg shadow-lg text-center">
+                  <h4 className="text-lg text-gray-600">{slide.subtitle}</h4>
+                  <h1 className="text-4xl font-bold text-gray-900 mt-2 uppercase">
+                    {slide.title}
+                  </h1>
+                  <a
+                    className="btn btn-solid mt-4 inline-block bg-black text-white py-2 px-6 rounded-full hover:bg-gray-800"
+                    href={slide.href}
+                  >
+                    Shop Now
+                  </a>
                 </div>
               </div>
             </div>
@@ -70,11 +73,11 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} slick-arrow bg-black text-white p-3 rounded-full absolute right-4 top-1/2 transform -translate-y-1/2 z-10`}
-      style={{ ...style }}
+      className={`${className} slick-arrow bg-white text-black p-4 rounded-full absolute right-4 top-1/2 transform -translate-y-1/2 z-20`}
+      style={style}
       onClick={onClick}
     >
-      &#8250;
+      Next
     </button>
   );
 };
@@ -84,11 +87,11 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} slick-arrow bg-black text-white p-3 rounded-full absolute left-4 top-1/2 transform -translate-y-1/2 z-10`}
-      style={{ ...style }}
+      className={`${className} slick-arrow bg-white text-black p-4 rounded-full absolute left-4 top-1/2 transform -translate-y-1/2 z-20`}
+      style={style}
       onClick={onClick}
     >
-      &#8249;
+      Previous
     </button>
   );
 };
